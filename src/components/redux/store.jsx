@@ -3,6 +3,8 @@ import { filterReduser } from './filterSlice';
 import { contactReducer } from './contactSlice';
 
 export const store = configureStore({
-  contacts: contactReducer,
-  filters: filterReduser,
+  reducer: {
+    contacts: contactReducer,
+    filters: filterReduser,
+  },
 });
