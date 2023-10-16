@@ -38,6 +38,7 @@ export const Forms = () => {
     }
     const newContacts = { name, number };
     dispatch(addContact(newContacts));
+    console.log(newContacts);
   };
 
   return (
