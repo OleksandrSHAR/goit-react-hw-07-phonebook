@@ -3,16 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
-import { persistor, store } from 'components/redux/store';
-import { PersistGate } from 'redux-persist/integration/react';
+import { store } from 'components/redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <App />
-        <Toaster position="top-right" reverseOrder={false} />
-      </PersistGate>
+      <App />
+      <Toaster position="top-right" reverseOrder={false} />
     </Provider>
   </React.StrictMode>
 );

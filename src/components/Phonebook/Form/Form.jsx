@@ -3,8 +3,9 @@ import { FormikWrap, FormWrap, ButForm, FormTitel } from './Form.styles';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'components/redux/contactSlice';
-import { getContacts } from 'components/redux/selectors';
+
+import { selectContacts } from 'components/redux/selectors';
+import { addContact } from 'components/redux/operations';
 const validationSchema = Yup.object({
   name: Yup.string()
     .matches(
@@ -25,7 +26,7 @@ const validationSchema = Yup.object({
 
 export const Forms = () => {
   const dispatch = useDispatch();
-  const contact = useSelector(getContacts);
+  const contact = useSelector(selectContacts);
   const onSubmit = ({ name, number }) => {
     if (
       contact.find(
