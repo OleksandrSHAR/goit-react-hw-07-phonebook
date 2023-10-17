@@ -6,8 +6,10 @@ import { Provider } from 'react-redux';
 import { store } from 'components/redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <App />
-    <Toaster position="top-right" reverseOrder={false} />
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+      <Toaster position="top-right" reverseOrder={false} />
+    </Provider>
+  </React.StrictMode>
 );

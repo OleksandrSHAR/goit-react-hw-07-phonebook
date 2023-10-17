@@ -1,10 +1,11 @@
-import { filterUser } from 'components/redux/selectors';
+import { statusFilter } from 'components/redux/filterSlice';
+
 import { useDispatch } from 'react-redux';
 
 export const Filter = () => {
   const dispatch = useDispatch();
   const filterForm = ({ target: { value } }) => {
-    dispatch(filterUser(value));
+    dispatch(statusFilter(value));
   };
   return (
     <div>
