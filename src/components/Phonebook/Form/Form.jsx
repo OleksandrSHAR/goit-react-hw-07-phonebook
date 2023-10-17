@@ -31,7 +31,7 @@ export const Forms = () => {
     if (
       contact.find(contact => contact.phone === phone || contact.name === name)
     ) {
-      toast.error("This didn't work.");
+      toast.error('This contact already exists');
       return;
     }
     const newContacts = { name, phone };
