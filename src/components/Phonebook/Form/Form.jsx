@@ -13,9 +13,9 @@ const validationSchema = Yup.object({
       'Name must not contain characters'
     )
     .required(''),
-  number: Yup.string()
-    .min(5, 'Too short  number')
-    .max(10, 'Too long number')
+  phone: Yup.string()
+    .min(5, 'Too short  phone')
+    .max(10, 'Too long phone')
     .matches(
       /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
       'Must have only numbers'
@@ -27,16 +27,14 @@ const validationSchema = Yup.object({
 export const Forms = () => {
   const dispatch = useDispatch();
   const contact = useSelector(selectContacts);
-  const onSubmit = ({ name, number }) => {
+  const onSubmit = ({ name, phone }) => {
     if (
-      contact.find(
-        contact => contact.number === number || contact.name === name
-      )
+      contact.find(contact => contact.phone === phone || contact.name === name)
     ) {
       toast.error("This didn't work.");
       return;
     }
-    const newContacts = { name, number };
+    const newContacts = { name, phone };
     dispatch(addContact(newContacts));
     console.log(newContacts);
   };
@@ -51,7 +49,7 @@ export const Forms = () => {
         }}
         initialValues={{
           name: '',
-          number: '',
+          phone: '',
         }}
       >
         <Form>
@@ -67,11 +65,11 @@ export const Forms = () => {
             <FormTitel>Number</FormTitel>
             <Field
               type="tel"
-              name="number"
+              name="phone"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
             />
-            <ErrorMessage name="number" component="p" />
+            <ErrorMessage name="phone" component="p" />
             <ButForm type="submit">Add contact</ButForm>
           </FormWrap>
         </Form>

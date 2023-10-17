@@ -13,9 +13,9 @@ export const ContactList = () => {
   return (
     <ContactWrap>
       <ContactColect>
-        {filterContacts.map(({ id, name, number }) => (
+        {filterContacts.map(({ id, name, phone }) => (
           <ContactItem key={id}>
-            {name}: <span>{number}</span>
+            {name}: <span>{phone}</span>
             <button type="button" onClick={() => onDelete(id)}>
               Delete
             </button>
