@@ -6,14 +6,14 @@ import { filterUser } from 'components/redux/selectors';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const filterContacts = useSelector(filterUser);
+  const contacts = useSelector(filterUser);
   const onDelete = user => {
     dispatch(deleteContact(user));
   };
   return (
     <ContactWrap>
       <ContactColect>
-        {filterContacts.map(({ id, name, phone }) => (
+        {contacts.map(({ id, name, phone }) => (
           <ContactItem key={id}>
             {name}: <span>{phone}</span>
             <button type="button" onClick={() => onDelete(id)}>
